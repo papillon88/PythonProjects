@@ -6,17 +6,25 @@ import sys
 class HelloWorld(QDialog):
     def __init__(self):
         super().__init__()
-        layout = QVBoxLayout()
+        # self.layout = QHBoxLayout()
+        # self.layout = QVBoxLayout()
+        self.layout = QGridLayout()
 
-        label = QLabel("Hello world")
-        line_edit = QLineEdit()
-        button = QPushButton("Close")
+        self.label = QLabel("Hello world")
+        self.line_edit = QLineEdit()
+        self.button = QPushButton("Close")
 
-        layout.addWidget(label)
-        layout.addWidget(line_edit)
-        layout.addWidget(button)
+        self.layout.addWidget(self.label, 0, 0)
+        self.layout.addWidget(self.line_edit, 0, 1)
+        self.layout.addWidget(self.button, 1, 1)
 
-        self.setLayout(layout)
+        self.setLayout(self.layout)
+
+        self.button.clicked.connect(self.close)
+        self.line_edit.textChanged.connect(self.change_text_label)
+
+    def change_text_label(self, text):
+        self.label.setText(text)
 
 
 app = QApplication(sys.argv)
