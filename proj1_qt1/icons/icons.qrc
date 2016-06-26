@@ -1,0 +1,8 @@
+<RCC>
+	<qresource>
+		<file>facebook-icon.png</file>
+		<file>google-icon.png</file>
+		<file>twitter-icon.png</file>
+		<file>login-icon.png</file>
+	</qresource>
+</RCC>	
